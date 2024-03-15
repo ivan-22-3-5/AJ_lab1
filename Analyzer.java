@@ -109,9 +109,9 @@ public class Analyzer {
         }
 
         result.append("Open methods:\n");
-        Method[] methods = objClass.getMethods();
+        Method[] methods = objClass.getDeclaredMethods();
         for (Method method : methods) {
-            if (method.getParameterCount() == 0) {
+            if (method.getParameterCount() == 0 && Modifier.isPublic(method.getModifiers())) {
                 result.append("\t").append(method.getName()).append("\n");
             }
         }
