@@ -1,3 +1,5 @@
+package Tasks123;
+
 public class Test {
     private final int field1;
     private final String field2;

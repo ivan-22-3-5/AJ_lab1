@@ -1,3 +1,5 @@
+package Tasks123;
+
 import java.util.Scanner;
 
 public class Scan {

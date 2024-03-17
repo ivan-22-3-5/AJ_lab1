@@ -1,3 +1,5 @@
+package Tasks123;
+
 public class TypedValue {
     private final Class<?> type;
     private final Object value;
