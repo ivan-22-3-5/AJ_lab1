@@ -17,9 +17,9 @@ public class RealTimeArrayManager {
         return arr;
     }
 
-    public static Object[] resizeArray(Object[] array, int newSize) {
+    public static Object resizeArray(Object array, int newSize) {
         Class<?> cls = array.getClass().getComponentType();
-        Object[] newArray = (Object[])Array.newInstance(cls, newSize);
+        Object newArray = Array.newInstance(cls, newSize);
         int length = Math.min(Array.getLength(array), newSize);
         System.arraycopy(array, 0, newArray, 0, length);
         return newArray;
@@ -44,10 +44,21 @@ public class RealTimeArrayManager {
     }
 
     public static String arrayToString(Object array) {
-        return Arrays.toString((Object[])array);
+        return Arrays.toString(getArray(array));
     }
 
     public static String matrixToString(Object matrix) {
         return Arrays.deepToString((Object[])matrix);
+    }
+
+    private static Object[] getArray(Object arr){
+        if (arr instanceof Object[])
+            return (Object[])arr;
+        int length = Array.getLength(arr);
+        Object[] outputArray = new Object[length];
+        for(int i = 0; i < length; ++i){
+            outputArray[i] = Array.get(arr, i);
+        }
+        return outputArray;
     }
 }

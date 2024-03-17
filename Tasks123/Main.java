@@ -9,12 +9,14 @@ public class Main {
         System.out.println(Analyzer.analyzeObject(test));
         System.out.print("Enter the method to invoke: ");
         System.out.println(Invoker.invokeMethod(test, Scan.scanStr()));
+
         try {
-            System.out.println(Invoker.invokeMethod(test, "sum", new TypedValue(4, int.class), new TypedValue(5, int.class)));
+            int a = 4;
+            int b = 5;
+            System.out.println("test.sum(" + a + ", " + b + ") = " + Invoker.invokeMethod(test, "sum", new TypedValue(a, int.class), new TypedValue(b, int.class)));
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
     }
 }

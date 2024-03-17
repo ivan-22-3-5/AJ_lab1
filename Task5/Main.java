@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationHandler;
 public class Main {
 
     public static Function<Integer> createProxy(Object obj, InvocationHandler handler) {
-        return (Function<Integer>) Proxy.newProxyInstance(obj.getClass().getClassLoader() ,
+        return (Function<Integer>) Proxy.newProxyInstance(obj.getClass().getClassLoader(),
                 obj.getClass().getInterfaces(), handler);
     }
 
@@ -18,6 +18,9 @@ public class Main {
         System.out.println("Start calculations:");
         for (int x = 30; x < 40; x += 1) {
             System.out.println("f(" + x + ") = " + timeCountingFib.apply(x));
+        }
+        System.out.println();
+        for (int x = 30; x < 40; x += 1) {
             System.out.println(tracingFib.apply(x));
         }
     }
